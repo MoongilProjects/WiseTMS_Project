@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Primeng text box
+      <input pInputText type="text" />
+    </div>
+    <div class="col-sm">
+      Primeng dropdown
+      <p-dropdown name="Test"
+                  optionLabel=""
+                  [showClear]="true"
+                  placeholder="Select"
+                  [options]="CityList"
+                  [(ngModel)]="City">
+      </p-dropdown>
+      {{City}}
+    </div>
+    <div class="col-sm">
+      Font-Awesome delete icon
+      <i aria-hidden="true" class="fa fa-times-circle"></i>
+    </div>
+  </div>
+</div>
