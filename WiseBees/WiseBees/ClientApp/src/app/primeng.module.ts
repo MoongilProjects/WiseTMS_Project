@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { TabViewModule } from 'primeng/tabview';
         DropdownModule,
         InputTextModule,
         PaginatorModule,
-        TabViewModule,
+      TabViewModule,
+      PanelMenuModule,
     ],
     exports: [
       CalendarModule,
@@ -25,6 +27,7 @@ import { TabViewModule } from 'primeng/tabview';
       InputTextModule,
       PaginatorModule,
       TabViewModule,
+      PanelMenuModule,
     ],
     providers: [
         

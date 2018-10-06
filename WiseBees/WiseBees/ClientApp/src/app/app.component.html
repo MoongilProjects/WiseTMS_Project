@@ -1,1 +1,82 @@
-<router-outlet></router-outlet>
+<div class="layout-wrapper">
+  <div id="layout-topbar">
+    <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#" class="logo" [routerLink]="['/']">
+      <span>Wise Bees</span> 
+    </a>
+    <ul class="topbar-menu">
+      <li>
+        <a href="#" [routerLink]="['/setup']">USER NAME</a>
+      </li>
+      <li>
+        <a [routerLink]="['/support']">LOGOUT</a>
+      </li>
+    </ul>
+  </div>
+  <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
+    <div class="layout-menu">
+      <a id="menu_input" #inputmenutitle [class.active-menuitem]="inputmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === inputmenutitle.id ? null : inputmenutitle.id)">
+        <i class="fa fa-exchange" aria-hidden="true"></i>
+        <span>TRANSACTIONS</span>
+      </a>
+      <div [ngClass]="{submenushow: (inputmenutitle.id == activeMenuId), 'submenuhide': (inputmenutitle.id != activeMenuId)}">
+        <a [routerLink]="['/inputgroup']" (click)="menuActive = false"> Download Attendance</a>
+        <a [routerLink]="['/autocomplete']" (click)="menuActive = false">Process Attendance</a>
+       
+      </div>
+      <a id="button_menutitle" #buttonmenutitle [class.active-menuitem]="buttonmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === buttonmenutitle.id ? null : buttonmenutitle.id)">
+        <i class="fa fa-file-text" aria-hidden="true"></i>
+        <span>REPORT</span>
+      </a>
+      <div [ngClass]="{'submenushow': (buttonmenutitle.id == activeMenuId), 'submenuhide': (buttonmenutitle.id != activeMenuId)}">
+        <a [routerLink]="['/button']" (click)="menuActive = false">Attendance Summary</a>
+        <a [routerLink]="['/splitbutton']" (click)="menuActive = false"> Project Summary</a>
+        <a [routerLink]="['/splitbutton']" (click)="menuActive = false"> Master Report</a>
+      </div>
+      <a id="data_menutitle" #datamenutitle [class.active-menuitem]="datamenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === datamenutitle.id ? null : datamenutitle.id)">
+        <i class="fa fa-cogs" aria-hidden="true"></i>
+        <span>CONFIGURATION</span>
+      </a>
+      <div [ngClass]="{'submenushow': (datamenutitle.id == activeMenuId), 'submenuhide': (datamenutitle.id != activeMenuId)}">
+        <a [routerLink]="['/carousel']" (click)="menuActive = false"> Company</a>
+        <a [routerLink]="['/dataview']" (click)="menuActive = false"> Employee</a>
+        <a [routerLink]="['/datascroller']" (click)="menuActive = false"> Job Codes</a>
+        <a [routerLink]="['/organizationchart']" (click)="menuActive = false"> Terminal</a>
+        <a [routerLink]="['/orderlist']" (click)="menuActive = false"> Shifts</a>
+        <a [routerLink]="['/gmap']" (click)="menuActive = false"> Calendar</a>
+       
+      </div>
+      <a id="menu_panel" #panelmenutitle [class.active-menuitem]="panelmenutitle.id == activeMenuId" (click)="activeMenuId = (activeMenuId === panelmenutitle.id ? null : panelmenutitle.id)">
+        <i class="fa fa-balance-scale" aria-hidden="true"></i>
+        <span>MASTERS</span>
+      </a>
+      <div [ngClass]="{'submenushow': (panelmenutitle.id == activeMenuId), 'submenuhide': (panelmenutitle.id != activeMenuId)}">
+        <a [routerLink]="['/accordion']" (click)="menuActive = false"> Home</a>
+        <a [routerLink]="['/card']" (click)="menuActive = false"> Users</a>
+        <a [routerLink]="['/fieldset']" (click)="menuActive = false"> Department</a>
+        <a [routerLink]="['/panel']" (click)="menuActive = false"> Designation</a>
+        <a [routerLink]="['/scrollpanel']" (click)="menuActive = false"> Work Mode</a>
+        <a [routerLink]="['/flexgrid']" (click)="menuActive = false"> Category </a>
+        
+      </div>
+    
+    </div>
+  </div>
+  <div class="layout-mask" *ngIf="menuActive">
+  </div>
+  <div id="layout-content">
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="content-section layout-footer clearfix">
+      <span>WiseBees 0.0.0</span>
+      <div class="footer-links">
+        <a href="https://google.com"><i class="fa fa-github"></i></a>
+        <a href="https://google.com"><i class="fa fa-twitter"></i></a>
+        <div>
+        </div>
+      </div>
+    </div>
+    </div>
